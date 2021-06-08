@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java語言基礎 | novice</title>
+  <title>Java-語言基礎 | novice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="語言基礎">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java語言基礎">
+<meta property="og:title" content="Java-語言基礎">
 <meta property="og:url" content="http://example.com/2021/06/07/java-se-note/index.html">
 <meta property="og:site_name" content="novice">
 <meta property="og:description" content="語言基礎">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-07T01:21:46.000Z">
-<meta property="article:modified_time" content="2021-06-07T06:01:54.525Z">
+<meta property="article:modified_time" content="2021-06-08T09:17:23.481Z">
 <meta property="article:author" content="Jacky">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java語言基礎
+      Java-語言基礎
     </h1>
   
 
@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="語言基礎"><a href="#語言基礎" class="headerlink" title="語言基礎"></a>語言基礎</h4><span id="more"></span>
+        <h3 id="語言基礎"><a href="#語言基礎" class="headerlink" title="語言基礎"></a>語言基礎</h3><span id="more"></span>
 <ul>
 <li>基礎語法<ul>
 <li>基本型態<ul>
@@ -208,29 +208,272 @@
 <li>物件在未指定初始值時預設值為null</li>
 </ul>
 </li>
+<li>陣列<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var scores = new int[10];</span><br><span class="line">scores[0] = 88;</span><br><span class="line">...</span><br><span class="line">int[] scores = &#123;88, 81, 74, 68, 78, 76, 77, 85, 95, 93&#125;</span><br><span class="line">var scores = new int[]&#123;88, 81, 74, 68, 78, 76, 77, 85, 95, 93&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>面向對象<ul>
+<li>物件導向<ul>
 <li>封裝</li>
 <li>繼承 is-a</li>
-<li>多形 has-a</li>
+<li>多形</li>
 </ul>
 </li>
-<li>接口<ul>
+<li>介面 has-a<ul>
 <li>介面中的方法沒有實作時，一定得是公開且抽象(public abstract)</li>
 <li>介面中定義的常數，只能定義(public static finial)且一定要使用=指定值</li>
 <li>enum列舉定義的列舉常數同樣只能定義public static finial可省略，編譯器會自動補齊</li>
-<li>如果有個臨時繼承某個類別或實作抹個介面並建立實例的需求，而這類子類別或介面實作類別只使用一次，可使用匿名內部類別<br>  new 父類別() | 介面() {<pre><code>  // 類別本體實作
-</code></pre>
-  };</li>
+<li>如果有個臨時繼承某個類別或實作抹個介面並建立實例的需求，而這類子類別或介面實作類別只使用一次，可使用匿名內部類別  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new 父類別() | 介面() &#123;</span><br><span class="line">	// 類別本體實作</span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>容器</li>
-<li>異常</li>
+<li>容器<ul>
+<li>Collection收集物件時，考慮到收集各種物件之需求，內部實作採用Object來參考物件，執行時期Object實際參考那些物件，編譯器不可能知道，<br>因此必須自行掌握物件實際型態，並在語法上告訴編譯器，讓物件重新扮演為自己的型態</li>
+<li>List 具有索引<ul>
+<li>ArrayList<ul>
+<li>內部使用Object陣列來保存收集之物件</li>
+<li>使用索引隨機存取時速度較快，若操作上有這類需求，像是排序，就可使用ArrayList，可得到較好的速度表現</li>
+<li>若需要調整索引順序時，會有較差的表現</li>
+<li>陣列長度固定也是要考慮的問題</li>
+<li>ArrayList有個可指定容量的建構式</li>
+</ul>
+</li>
+<li>LinkedList<ul>
+<li>採用了鏈結結構</li>
+<li>每次add才會建立新的實體，不會事先耗費記憶體</li>
+<li>想要指定索引隨機存取物件時，會從第一個元素，開始往下查找下一個元素，會比較沒效率</li>
+<li>鏈結的每個元素會參考下一個元素，這有利於調整索引順序</li>
+<li>若收集物件時經常會有變動所引的情況，也許考慮鏈結方式實作的List會比較好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Set 內容不重複<ul>
+<li>HashSet<ul>
+<li>物件不重複判斷需實作hashCode()和equals() -&gt; 可用編譯器自動產</li>
+</ul>
+</li>
+<li>TreeSet<ul>
+<li>不僅擁有收集不重複物件之能力，還可用紅黑樹結構來排序物件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Queue 支持序列操作<ul>
+<li>收集物件加入尾端，取物件前端</li>
+<li>Collection add、remove、element方法和Queue自定義方法offer、poll、peek的最主要差別之一在於add、remove、element等操作失敗時會拋出例外，<br>而offer、poll、peek等操作失敗時會回傳特定值</li>
+<li>LinkedList不僅實作List介面，也實作Queue的行為，因此可將LinkedList當作序列來用</li>
+<li>PriorityQueue<ul>
+<li>會根據你指定的優先權，決定物件在序列中的順序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Deque 在尾端加入物件與取出物件<ul>
+<li>ArrayDeque</li>
+<li>LinkedList也實作了Deque</li>
+</ul>
+</li>
+<li>Iterable &amp; Iterator<ul>
+<li>無論是List、Set、Queue都有個Iterator()方法，可使用hasNext()看看有沒有下個物件，有的話使用next()取得下個物件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">static void foeEach(Iterable iterable)&#123;</span><br><span class="line">	var iterable = iterable.iterator();</span><br><span class="line">	while(iterator.hasNext())&#123;</span><br><span class="line">		out.println(iterator.next());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+<li>JDK8後版本，Iterable新增了forEach()方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var names = Arrays.asList(&quot;Justin&quot;, &quot;Monica&quot;);</span><br><span class="line">names.forEach(name -&gt; out.println(name));</span><br><span class="line"></span><br><span class="line">new HashSet(names).foeEach(out::println);</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Comparable &amp; Comparator<ul>
+<li>List可以直接排序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var numbers = Array.asList(10, 2, 3);</span><br><span class="line">Collection.sort();</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+<li>物件排序需實作Comparable<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Account impements Comparable&lt;Account&gt; &#123;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public int comparaTo(Account other) &#123;</span><br><span class="line">		return this.balance - other.balance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+<li>若無法實作Comparable可使用Comparator<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class StringComparator impements Comparator&lt;String&gt; &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public int compare(String s1, String s2) &#123;</span><br><span class="line">		return -s1.comparaTo(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">var words Array.asList(&quot;B&quot;, &quot;X&quot;, &quot;A&quot;,...,&quot;O&quot;);</span><br><span class="line">Collection.sort(words, new StringComparator());</span><br><span class="line">// Lambda</span><br><span class="line">Collection.sort(words, (s1, s2) -&gt; -s1.comparaTo(s2));</span><br><span class="line">// 有null&amp;反轉</span><br><span class="line">var words Array.asList(&quot;B&quot;, &quot;X&quot;, &quot;A&quot;, &quot;null&quot;);</span><br><span class="line">Collection.sort(nullsFirst(reverseOrder()));</span><br><span class="line">=&gt; [null, &quot;X&quot;, &quot;B&quot;, &quot;A&quot;]</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Map 鍵質對應<ul>
+<li>HashSet<ul>
+<li>鍵是否重複是根據hashCode()與equals()判斷，作為鍵的物件必須實作hashCode()與equals()</li>
+</ul>
+</li>
+<li>TreeSet<ul>
+<li>若想讓鍵以有序的方式儲存，可以使用TreeMap</li>
+<li>需實做Comparable，或是建構TreeMap時，指定實作Comparator介面的物件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var messages = new TreeSet&lt;String, String&gt;(</span><br><span class="line">	(s1, s2) -&gt; -s1.comparaTo(s2)</span><br><span class="line">);</span><br><span class="line">messages.put(&quot;JAVA&quot;, &quot;Hello World&quot;);</span><br><span class="line">...</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>走訪MAP鍵值<ul>
+<li>轉換型態</li>
+<li>KeySet<ul>
+<li>KeySet回傳Set物件後在走訪<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.KeySet().foeEach(key -&gt; out.println(key));</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>values<ul>
+<li>values回傳Collection物件後再走訪<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.values().foeEach(key -&gt; out.println(key));</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>轉換型態後可用Iterable</li>
+<li>若想同時取得Map的鍵與鍵值，可使用entrySet()方法，這會回傳一個Set物件，每個元素都是Map.Entry實例，可呼叫getKey取得鍵，呼叫getValue()取得值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map.entrySet();</span><br><span class="line">...</span><br><span class="line">for(Map.Entry&lt;String, String&gt; entry: iterable) &#123;</span><br><span class="line">	entry.getKey();</span><br><span class="line">	entry.getValue();</span><br><span class="line">&#125;</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
+<li>Map介面沒有繼承Iterable。Map介面定義的forEach()方法科接受java.util.function.BiConsumer&lt;T, U&gt;介面實例，這介面上只有一個抽象方法void accept(T t, U, u)<br>必須實作，兩個參數分別接受每次迭代Map而得的鍵與值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map.forEach(</span><br><span class="line">	(key, value) -&gt; System.out.println(key + &quot;...&quot; + value);</span><br><span class="line">);</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Properties<ul>
+<li>一般常用setProperty()指定字串型態的鍵值、getProperty()取回字串型態的值，通常稱為屬性名稱與屬性值</li>
+<li>可用來從檔案中(.properties)讀取屬性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// person.properties</span><br><span class="line">// cc.openhome.username=justin</span><br><span class="line">// cc.openhome.password=123456</span><br><span class="line"></span><br><span class="line">var props = new Properties();</span><br><span class="line">props.load(new FileInputStream(args[0]));</span><br><span class="line">props.getProperty(&quot;cc.openhome.username&quot;);</span><br><span class="line">...</span><br><span class="line">		</span><br></pre></td></tr></table></figure>    </li>
+<li>load方法執行完會自動關閉InputStream實例</li>
+<li>也可用loadFromXML()方法載入xml檔案</li>
+<li>System的static方法getProperties()取得Properties實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -Dusername=justin -Dpassword=123456 LoadSystemProps</span><br><span class="line"></span><br><span class="line">var props = System.getProperties();</span><br></pre></td></tr></table></figure></li>
+<li>System.getProperties()取回的Properties實例中，也包括了許多預置屬性，例如”java.version”可取得JRE版本，”java.class.path”可取得類別路徑等<br>詳細屬性可查閱System.getProperties()的API文件說明</li>
+</ul>
+</li>
+<li>創立不可變的容器 <ul>
+<li>Collection的unmodifiableXXX()方法<ul>
+<li>方法委託</li>
+<li>傳回的物件只是無法修改(Unmodifiable)，也就是僅僅不支援修改操作而已</li>
+<li>會拋出java.lang,UnsupportedOperationException</li>
+<li>Collection的unmodifiableXXX()方法並沒有保證不可變，傳回的物件是不可修改，而非不可變動</li>
+<li>若變動傳給unmodifiableXXX()方法的物件，unmodifiableXXX()方法回傳的物件也會跟著變動</li>
+</ul>
+</li>
+<li>List、Set、Map的of()方法<ul>
+<li>會建立新物件</li>
+<li>List、Set、Map的of()方法會建立不可變動物件</li>
+<li>會拋出java.lang,UnsupportedOperationException</li>
+<li>建立方式Map.of(K1, V1, K2, V2,…)</li>
+<li>內部並不會參考原本elements參考實例，而是建立一個新陣列</li>
+<li>淺層複製，若是直接變更了元素的狀態，of()方法傳回的物件還是會反映出對應的狀態變更</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>異常<ul>
+<li>try、catch、throw、throws</li>
+<li>Error -&gt; Java本身無力處理</li>
+<li>Exception </li>
+<li>不屬於RuntimeException及其子物件稱為受檢例外(Checked Exception)</li>
+<li>不屬於Error，java.lang.RuntimeException，呼叫者就必須使用明確的try-catch</li>
+<li>多重捕捉(multi-catch) catch中的例外不得有繼承關係<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; catch (IOException | InterruptedException) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>受檢例外: 表示認為客戶端有能力處裡例外，此時必須在方法上使用throws宣告throw<ul>
+<li>使用繼承時父類別某個方法宣告throws某些例外，子類別重新定義該方法時<ul>
+<li><h4 id="可以"><a href="#可以" class="headerlink" title="可以"></a>可以</h4><ul>
+<li>不宣告throws任何例外</li>
+<li>可throws父類別該方法宣告的某些例外</li>
+<li>可throws父類別該方法宣告例外之子類別</li>
+</ul>
+</li>
+<li><h4 id="不可以"><a href="#不可以" class="headerlink" title="不可以"></a>不可以</h4><ul>
+<li>throws父類別方法未宣告的其他例外</li>
+<li>throws父類別方法宣告例外之父類別</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非受檢例外: 表示認為客戶端呼叫方法的時機錯了，拋出例外是要求客戶端修正臭蟲再來呼叫方法</li>
+<li>程式流程若會拋出受檢例外，而目前環境不足以處裡例外，無法使用try-catch處理時，必須在方法上使用throws，宣告方法會拋出的例外類型或父類型，編譯器才能通過編譯</li>
+<li>若為非受檢例外，原本就可以自行選擇是否處理例外，因此不使用try-catch處理時，也不用特別在方法上使用throws宣告，不處理非受檢例外時，例外會自動往外傳播</li>
+<li>在catch區塊進行完部分錯誤處理之後，可以用throw將例外再拋出</li>
+<li>自訂受檢例外<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class CustomizedException extends Expection &#123; </span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>自訂非受檢例外<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class CustomizedException extends RuntimeException &#123; </span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>e.printStackTrace() 堆疊追蹤<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; catch(SomeException ex)&#123;</span><br><span class="line">	// 什麼都沒有，絕對不要這樣做</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>如果想讓例外堆疊其點為重拋例外的地方，可以使用fillInStackTrace()</li>
+<li>斷言assert<ul>
+<li>assert boolean_expression</li>
+<li>assert boolean_expression : detail_expression</li>
+</ul>
+</li>
+<li>若使用try-catch做檔案操做記得在finally關閉資源<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#125; finally &#123;</span><br><span class="line">	if(console != null)&#123;</span><br><span class="line">		console.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>如果程式的流程先return了，而且也有寫finally，那finally區塊會先執行完畢後，再將值傳回</li>
+<li>嘗試關閉資源try-with-resources語法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try (var console = new Scanner(new FileInputStream(name)))&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>使用自動嘗試關閉資源語法時，並不影響你對特定例外地處裡，實際上自動嘗試關閉資源語法也僅協助關閉資源，而非用於處裡例外，<br>從反編譯的程式碼可以看到，使用嘗試關閉資源語法時，不要自行撰寫程式碼關閉資源</li>
+<li>JDK7、JDK8，使用嘗試關閉資源語法時，一定得在try的括號中宣告</li>
+<li>JDK9以後，只要參考變數實作了只要變數java.lang.AutoCloseable介面的實例，而且是是final或等效於final，在使用嘗試關閉資源語法時，<br>就可以放在try的括號中通過編譯<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static String readFile(Scanner scanner)&#123;</span><br><span class="line">	try (scanner)&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>JDK7嘗試關閉資源語法可套用的物件，必須實作java.lang.AutoCloseable介面，AutoCloseable僅定義close方法</li>
+<li>嘗試關閉資源語法關閉多個資源<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try (var some = new ResourceSome();</span><br><span class="line">var other = new ResourceOther())&#123;</span><br><span class="line">	...</span><br><span class="line">&#125; catch(Exception ex)&#123;</span><br><span class="line">	ex.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 <li>泛型</li>
 <li>反射</li>
 <li>註解</li>
-<li>I/O</li>
+<li>I/O<ul>
+<li>在不使用InputStream與OutputStream時，必須使用close()關閉串流，由於InputStream與OutputStream實作了java.io.Closeable介面，其父介面為<br>java.lang.AutoCloseable介面，所以可使用JDK7嘗試自動關閉資源語法</li>
+<li>重程式的角度InputStream代表輸入串流，OutputStream代表輸出串流<ul>
+<li>每次從InputStream讀入的資料，都會先存入byte陣列，InputStream的read()方法，會嘗試讀入byte陣列長度的資料，並回傳實際讀入的位元組，只要不是-1，<br>就表示讀取道資料，可以用OutputStream的write()方法，指定要寫出的byte陣列、初始索引與資料長度<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class IO &#123;</span><br><span class="line">	public static void dump(InputStream src, OutputStream dest) throws IOException &#123;</span><br><span class="line">		try (src; dest) &#123;</span><br><span class="line">			var data = new byte[1024];</span><br><span class="line">			var length = 0;</span><br><span class="line">			while((length = src.read(data)) != -1) &#123;</span><br><span class="line">				dest.write(data, 0, length);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// copy</span><br><span class="line">IO.dump(</span><br><span class="line">	  new FileInputStream(args[0]), </span><br><span class="line">	  new FileOutputStream(args[1])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 讀取網頁存成檔案</span><br><span class="line">// openStream()會取得InputStream實例，代表與網站連結的資料串流</span><br><span class="line">var url = new URL(args[0]);</span><br><span class="line">var src = url.openStream();</span><br><span class="line">var dest = new FileOutputStream(args[1]);</span><br><span class="line">IO.dump(src, dest);</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+<li>無論來源或目的地的具體形式為何，只要想辦法取得InputStream或OutputStream，接下來都是呼叫InputStream或OutStream的相關方法</li>
+<li>System.in是InputStream的實例 System.setIn()方法可指定InputStream實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.setIn(new FileInputStream(args[0]));</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+<li>System.out是PrintStream的實例 System.setOut()將結果輸出至指定的目的地</li>
+<li>System.err 標準錯誤輸出串流<ul>
+<li>但System.err的訊息一定會顯示在文字模式中可使用 &gt; or &gt;&gt; 重新導向至檔案</li>
+<li>也可以使用System.setErr()指定PrintStream，重新指定標準錯誤輸出串流</li>
+</ul>
+</li>
+<li>FileInputStream與FileOutputStream<ul>
+<li>FileInputStream與FileOutputStream在讀取、寫入檔案時，是以位元組為單位，通常會使用一些高階類別加以包裹</li>
+</ul>
+</li>
+<li>ByteArrayInputStream 與 ByteArrayOutputStream<ul>
+<li>read()、write()、toByteArray()</li>
+</ul>
+</li>
+<li>包裹器、裝飾器(Decorator)<ul>
+<li>PrintStream <ul>
+<li>操作PrintStream的print()、println()等方法，PrintStream會自動轉換為byte陣列資料，利用包裹的OutputStream進行輸出</li>
+</ul>
+</li>
+<li>BufferedInputStream 與 BufferedOutputStream 緩衝區</li>
+<li>DataInputStream 與 DataOutputStream 資料轉換處裡<ul>
+<li>讀寫int、double、boolean等的方法，這些方法會自動在指定的型態與位元組間轉換</li>
+<li>Member.writeUTF、Member.writeInt…</li>
+<li>Member.load(“XXX”)</li>
+</ul>
+</li>
+<li>ObjectInputStream 與 ObjectOutputStream 序列化<ul>
+<li>提供readObject()方法將資料讀入物件</li>
+<li>提供writeObject() 方法將物件寫至目的地</li>
+<li>需實作java.io.Serializable介面</li>
+<li>如果在物件序列化時，某些資料成員不希望被寫入，可以使用transient關鍵字</li>
+</ul>
+</li>
+<li>這些類別本身並沒有改變InputStream、OutputStream的行為，只不過取得InputStream做一些加工處理，再交由OutputStream真正進行輸出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>字元處裡類別<ul>
+<li>Reader與Writer<ul>
+<li>InputStream、OutputStream是用來讀入與輸出位元組資料，若實際上處裡的是字串資料，使用InputStream、OutputStream就得對照編碼表，<br>在字元與位元組間做轉換<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class CharUtil &#123;</span><br><span class="line">	public static void dump(Reader src, Writer dest) throws IOException &#123;</span><br><span class="line">		try(src; dest) &#123;</span><br><span class="line">			var data = new char[1024];</span><br><span class="line">			var length = 0;</span><br><span class="line">			while((length = src.read(data)) != -1) &#123;</span><br><span class="line">				dest.write(data, 0, length);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
+<li>StringReader 與 StringWriter<ul>
+<li>StringReader可將字包裹，當作讀取來源</li>
+<li>StringWriter可以做為寫入目的地，最後用toString()取得寫入的字元組成的字串</li>
+</ul>
+</li>
+<li>CharArrayReader 與 CharArrayWriter<ul>
+<li>將char陣列當作讀取來源以及寫入目的地</li>
+</ul>
+</li>
+<li>FileReader 與 FileWriter<ul>
+<li>讀入寫入預設會使用作業系統預設編碼來做字元轉換</li>
+<li>啟動JVM時可指定-Dfile.encoding來指定FileReader與FileWriter使用的編碼<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -Dfile.encoding=UTF-8 cc.openhome.CharUtil sample.txt</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>裝飾器<ul>
+<li>FileReader、FileWriter沒有可以指定編碼的方法，如果在程式執行過程中想指定編碼，必須使用InputStreamReader、OutputStreamWriter，<br>這兩個類別做為裝飾器</li>
+<li>InputStreamReader 與 OutputStreamWriter<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new InputStreamReader(src, charset), </span><br><span class="line">new OutputStreamWriter(dest, charset)</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
+<li>BufferedReader 與 BufferedWriter 緩衝區<ul>
+<li>BufferedReader的readline()方法，可讀取一行資料以字串傳回，傳回的字串不包括換行字元</li>
+</ul>
+</li>
+<li>PrintWriter<ul>
+<li>PrintWriter與PrintStream使用上極為類似，不過除了可以對OutputStream包裹之外，PrintWriter還可以對Writer進行包裹，提供print()、<br>println()、format()等方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lambda<ul>
+<li>Request介面只有一個方法必須實作可用下列方法撰寫<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public interface IntegerFunction &#123;</span><br><span class="line">	Integer apply(Integer i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var doubleFunction = new IntegerFunction()&#123;</span><br><span class="line">	public Integer apply(Integer i)&#123;</span><br><span class="line">		return i*2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IntegerFunction doubleFunction = (Integer i) -&gt; i*2;</span><br><span class="line">IntegerFunction doubleFunction = (i) -&gt; i*2;</span><br><span class="line">// 若是單參數又無需些出參數型態時，()也可省略</span><br><span class="line">IntegerFunction doubleFunction = i -&gt; i*2;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 </ul>
 
       
@@ -327,7 +570,7 @@
   
   
     <a href="/2021/06/06/big-deciaml/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java精確計算-BigDeciaml</div>
+      <div class="article-nav-title">Java-精確計算-BigDeciaml</div>
       <i class="icon-circle-right"></i>
     </a>
   
