@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Novice</title>
+  <title>java-time | Novice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Novice">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="時間與日期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-time">
+<meta property="og:url" content="http://example.com/2021/06/10/java-time/index.html">
 <meta property="og:site_name" content="Novice">
+<meta property="og:description" content="時間與日期">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-10T04:11:08.000Z">
+<meta property="article:modified_time" content="2021-06-10T15:22:17.068Z">
 <meta property="article:author" content="Jacky Yu">
 <meta name="twitter:card" content="summary">
   
@@ -150,238 +154,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java-time" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-api/" class="archive-article-date">
-  	<time datetime="2021-06-10T15:22:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-api/">java-通用API</a>
+    <h1 class="article-title" itemprop="name">
+      java-time
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-nio/" class="archive-article-date">
-  	<time datetime="2021-06-10T11:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-nio/">java-nio</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-time/" class="archive-article-date">
+        
+        <a href="/2021/06/10/java-time/" class="archive-article-date">
   	<time datetime="2021-06-10T04:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-time/">java-time</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="時間與日期"><a href="#時間與日期" class="headerlink" title="時間與日期"></a>時間與日期</h3><span id="more"></span>
+<ul>
+<li>Date<ul>
+<li>取得系統時間System.crrentTimeMillis()代表1970年1月1日0時0分0秒0毫秒至今經過的毫秒數<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var date1 = new Date(currentTimeMillis());</span><br><span class="line">      var date2 = new Date();</span><br><span class="line"></span><br><span class="line">      out.println(date1.getTime());</span><br><span class="line">      out.println(date2.getTime());</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>Date實例建議只用來代表時間軸上的某一時間</li>
+<li>關於時間格式的處理，不再是Date的職責</li>
+<li>時間格式的處理職責落到了java.text.DateFormat身上，DateFormat是一個抽象類別，其實作類別是java.text.SimpleDateFormat</li>
+<li>DateFormat  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	var date = new Date();</span><br><span class="line">	dateInstanceDemo(date);</span><br><span class="line">	timeInstanceDemo(date);</span><br><span class="line">	dateTimeInstanceDemo(date);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void dateInstanceDemo(Date date) &#123;</span><br><span class="line">	out.println(&quot;getDateInstance() demo&quot;);</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;, getDateInstance(LONG).format(date));</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;, getDateInstance(SHORT).format(date));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void timeInstanceDemo(Date date) &#123;</span><br><span class="line">	out.println(&quot;getTimeInstance() demo&quot;);</span><br><span class="line">	out.printf(&quot;\tLONG: %s%n&quot;, getTimeInstance(LONG).format(date));</span><br><span class="line">	out.printf(&quot;\tMEDIUM: %s%n&quot;, getTimeInstance(MEDIUM).format(date));</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;,getTimeInstance(SHORT).format(date));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void dateTimeInstanceDemo(Date date) &#123;</span><br><span class="line">	out.println(&quot;getDateTimeInstance() demo&quot;);</span><br><span class="line">	out.printf(&quot;\tLONG: %s%n&quot;, </span><br><span class="line">	   getDateTimeInstance(LONG, LONG).format(date));</span><br><span class="line">	out.printf(&quot;\tMEDIUM: %s%n&quot;,</span><br><span class="line">	   getDateTimeInstance(SHORT, MEDIUM).format(date));</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;,</span><br><span class="line">	   getDateTimeInstance(SHORT, SHORT).format(date));</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure>
+<ul>
+<li>parse()方法，可依建構SimpleDateFormat時所指定的格式，將指定的字串剖析為Date實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">System.out.print(&quot;輸入出生年月日（yyyy-mm-dd）：&quot;);</span><br><span class="line">var dateFormat = new SimpleDateFormat(&quot;yyyy-mm-dd&quot;);</span><br><span class="line">var birthDate = dateFormat.parse(new Scanner(System.in).nextLine());</span><br><span class="line">var currentDate = new Date();</span><br><span class="line">var life = currentDate.getTime() - birthDate.getTime();</span><br><span class="line">System.out.println(&quot;你今年的歲數為：&quot; + (life / (365 * 24 * 60 * 60 * 1000L)));</span><br><span class="line">		</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">var date = new Date();</span><br><span class="line">dateInstanceDemo(date);</span><br><span class="line">timeInstanceDemo(date);</span><br><span class="line">dateTimeInstanceDemo(date);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void dateInstanceDemo(Date date) &#123;</span><br><span class="line">	out.println(&quot;getDateInstance() demo&quot;);</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;, getDateInstance(LONG).format(date));</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;, getDateInstance(SHORT).format(date));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void timeInstanceDemo(Date date) &#123;</span><br><span class="line">	out.println(&quot;getTimeInstance() demo&quot;);</span><br><span class="line">	out.printf(&quot;\tLONG: %s%n&quot;, getTimeInstance(LONG).format(date));</span><br><span class="line">	out.printf(&quot;\tMEDIUM: %s%n&quot;, getTimeInstance(MEDIUM).format(date));</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;,getTimeInstance(SHORT).format(date));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void dateTimeInstanceDemo(Date date) &#123;</span><br><span class="line">	out.println(&quot;getDateTimeInstance() demo&quot;);</span><br><span class="line">	out.printf(&quot;\tLONG: %s%n&quot;, </span><br><span class="line">	   getDateTimeInstance(LONG, LONG).format(date));</span><br><span class="line">	out.printf(&quot;\tMEDIUM: %s%n&quot;,</span><br><span class="line">	   getDateTimeInstance(SHORT, MEDIUM).format(date));</span><br><span class="line">	out.printf(&quot;\tSHORT: %s%n&quot;,</span><br><span class="line">	   getDateTimeInstance(SHORT, SHORT).format(date));</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>SimpleDateFormat 可用模式字串自訂格式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var dateFormat = new SimpleDateFormat(</span><br><span class="line">              args.length == 0 ? &quot;EE-MM-dd-yyyy&quot; : args[0]);  </span><br><span class="line">      System.out.println(dateFormat.format(new Date())); </span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+<ul>
+<li>parse()方法，可依建構SimpleDateFormat時所指定的格式，將指定的字串剖析為Date實例</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Calendar<ul>
+<li>Calendar.getInstance() 取得Calendar實例</li>
+<li>若想取得某時間日期資訊，或是對時間日期進行運算，可以使用Calendar實例</li>
+<li>getTime() 取得Date實例</li>
+<li>常用含式<ul>
+<li>getTime() </li>
+<li>get()</li>
+<li>add()</li>
+<li>roll()</li>
+<li>after()</li>
+<li>before()</li>
+<li>算年紀要改為以下算法才正確<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class CalendarUtil &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		var birth = Calendar.getInstance();</span><br><span class="line">		birth.set(1975, Calendar.MAY, 26);</span><br><span class="line">		var now = Calendar.getInstance();</span><br><span class="line">		out.printf(&quot;歲數：%d%n&quot;, yearsBetween(birth, now));</span><br><span class="line">		out.printf(&quot;天數：%d%n&quot;, daysBetween(birth, now));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static long yearsBetween(Calendar begin, Calendar end) &#123;</span><br><span class="line">		var calendar = (Calendar) begin.clone();</span><br><span class="line">		var years = 0;</span><br><span class="line">		while(calendar.before(end)) &#123;</span><br><span class="line">			calendar.add(Calendar.YEAR, 1);</span><br><span class="line">			years++;  </span><br><span class="line">		&#125;</span><br><span class="line">		return years - 1;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static long daysBetween(Calendar begin, Calendar end) &#123;</span><br><span class="line">		var calendar = (Calendar) begin.clone();</span><br><span class="line">		var days = 0;</span><br><span class="line">		while(calendar.before(end)) &#123;</span><br><span class="line">			calendar.add(Calendar.DATE, 1);</span><br><span class="line">			days++;</span><br><span class="line">		&#125;</span><br><span class="line">		return days - 1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TimeZone 預設時區</li>
+<li>JDK8新時間日期處理API的重要做法，就是清楚地將機器對時間的概念與人類對時間的概念區隔開來，新時間處理API的主要套件是java.time<ul>
+<li>機器觀點的API<ul>
+<li>毫秒<ul>
+<li>now()</li>
+<li>ofEpochMilli()</li>
+<li>ofEpochSecond()</li>
+<li>plusMillis()</li>
+<li>plusNanos()</li>
+<li>miunsSeconds()</li>
+<li>minusMillis()</li>
+<li>minusNanos()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人類時間觀點的API<ul>
+<li>年月日等<ul>
+<li>LocalDateTime</li>
+<li>LocalDate</li>
+<li>LocalTime</li>
+<li>ZonedDateTime</li>
+<li>OffsetDateTime<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var localTime = LocalTime.of(0, 0, 0);</span><br><span class="line">var localDate = LocalDate.of(1975, 4, 1);</span><br><span class="line">var zonedDateTime = ZonedDateTime.of(</span><br><span class="line">		localDate, localTime, ZoneId.of(&quot;Asia/Taipei&quot;));</span><br><span class="line"></span><br><span class="line">out.println(zonedDateTime);</span><br><span class="line">out.println(zonedDateTime.toEpochSecond());</span><br><span class="line">out.println(zonedDateTime.toInstant().toEpochMilli());</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>對時間的運算<ul>
+<li>TemporalXXXX</li>
+</ul>
+</li>
+<li>年曆系統設計<ul>
+<li>MinguoChronology 中華民國年曆</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/10/java-time/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/java-lambda/" class="archive-article-date">
-  	<time datetime="2021-06-08T12:03:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/06/10/java-nio/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java-nio
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/08/java-lambda/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java-lambda</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/java-lambda/">java-lambda</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/java-thread/" class="archive-article-date">
-  	<time datetime="2021-06-08T12:00:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/java-thread/">java-thread</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/07/java-se-basic/" class="archive-article-date">
-  	<time datetime="2021-06-07T01:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/07/java-se-basic/">Java-語言基礎</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/java-BigDeciaml/" class="archive-article-date">
-  	<time datetime="2021-06-06T10:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/java-BigDeciaml/">Java-精確計算-BigDeciaml</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/hello-world/" class="archive-article-date">
-  	<time datetime="2021-06-06T10:29:26.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/hello-world/">hexo 指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -404,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

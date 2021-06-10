@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Novice</title>
+  <title>java-lambda | Novice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Novice">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="Lambda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-lambda">
+<meta property="og:url" content="http://example.com/2021/06/08/java-lambda/index.html">
 <meta property="og:site_name" content="Novice">
+<meta property="og:description" content="Lambda">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-08T12:03:09.000Z">
+<meta property="article:modified_time" content="2021-06-10T08:09:12.100Z">
 <meta property="article:author" content="Jacky Yu">
 <meta name="twitter:card" content="summary">
   
@@ -150,238 +154,266 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java-lambda" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-api/" class="archive-article-date">
-  	<time datetime="2021-06-10T15:22:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-api/">java-通用API</a>
+    <h1 class="article-title" itemprop="name">
+      java-lambda
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-nio/" class="archive-article-date">
-  	<time datetime="2021-06-10T11:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-nio/">java-nio</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-time/" class="archive-article-date">
-  	<time datetime="2021-06-10T04:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-time/">java-time</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/java-lambda/" class="archive-article-date">
+        
+        <a href="/2021/06/08/java-lambda/" class="archive-article-date">
   	<time datetime="2021-06-08T12:03:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/java-lambda/">java-lambda</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><span id="more"></span>
+<ul>
+<li>Lambda<ul>
+<li>Request介面只有一個方法必須實作可用下列方法撰寫<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public interface IntegerFunction &#123;</span><br><span class="line">	Integer apply(Integer i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var doubleFunction = new IntegerFunction()&#123;</span><br><span class="line">	public Integer apply(Integer i)&#123;</span><br><span class="line">		return i*2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IntegerFunction doubleFunction = (Integer i) -&gt; i*2;</span><br><span class="line">IntegerFunction doubleFunction = (i) -&gt; i*2;</span><br><span class="line">// 若是單參數又無需些出參數型態時，()也可省略</span><br><span class="line">IntegerFunction doubleFunction = i -&gt; i*2;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>使用Lambda改寫姓名排序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] names = &#123;&quot;Justin&quot;, &quot;caterpillar&quot;, &quot;Bush&quot;&#125;;</span><br><span class="line">Arrays.sort(names, (name1, name2) -&gt; name1.length() - name2.length());</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>若有多總排序方式時建立StringOrder<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class StringOrder &#123;</span><br><span class="line">	public static int byLength(String s1, String s2) &#123;</span><br><span class="line">		return s1.length() - s2.length();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public static int byLexicography(String s1, String s2) &#123;</span><br><span class="line">		return s1.compareTo(s2);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public static int byLexicographyIgnoreCase(String s1, String s2) &#123;</span><br><span class="line">		return s1.compareToIgnoreCase(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>之後可以使用方法參考傳入值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String[] names = &#123;&quot;Justin&quot;, &quot;caterpillar&quot;, &quot;Bush&quot;&#125;;</span><br><span class="line">Arrays.sort(names, (name1, name2) =&gt; StringOrder.byLength(name1, name2));</span><br><span class="line">可改為=&gt;</span><br><span class="line">Arrays.sort(names, StringOrder::byLength);</span><br><span class="line"></span><br><span class="line">// byLexicography 一般的排序可直接使用</span><br><span class="line">String::compareTo</span><br><span class="line">// byLexicographyIgnoreCase 忽略大小寫排序可直接使用</span><br><span class="line">String::compareToIgnoreCase</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>等號右邊是Lambda表示式(Expression)表示接受2個參數，等號左邊是作為Lambda的目標型態(Target type)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(String name1, String name2) -&gt; name1.length() - name2.length()</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>若有目標型態，在編譯器可推斷類型的情形下，Lambda表示式的參數型態可以不寫<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;String&gt; byLength(name1, name2) -&gt; name1.length() - name2.length();</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>Lambda表示式本身不代表任何型態的實例，同一個Lambda表示式，可表示不同目標的物件實作</li>
+<li>Lambda沒有導入新型態來作為Lambda表示式的型態，而是基於interface語法定義函式介面，來作為Lambda表示式的目標型態。函式介面就是界面，但要求僅具單一抽象方法<ul>
+<li>Runnable、Callable、Comparator都只定義了一個方法</li>
+</ul>
+</li>
+<li>JDK8出現前，可以使用匿名類別來實作這類介面，匿名類別不是不好，只不過有其應用的場合，然而在介面只有一個方法要實作，只想關心參數即實作本體，在這類場合下<br>使用Lambda表示式更能專注在程式碼的意圖<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(names, new Comparator&lt;String&gt;()&#123;</span><br><span class="line">	public int compare(String name1, String name2)&#123;</span><br><span class="line">		return name1.length() - name2.length();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">=&gt;</span><br><span class="line">Arrays.sort(names, (name1, name2) -&gt; name1.length() - name2.length());</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>Lambda表示式只關心方法簽屬的參數與回傳定義，然而忽略方法名稱</li>
+<li>函式介面僅具單一抽象方法介面，不過有時難以分辨介面是否為函式介面<ul>
+<li>於是JDK8對語法作了演進，允許有預設方法FunctionalInterface<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface Function&lt;P, R&gt;&#123;</span><br><span class="line">	R call(P p);</span><br><span class="line">	R call(P p, P p2)</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+<li>若介面使用了@FunctionalInterface標註，然而並非函式介面的話，就會引發編譯錯誤</li>
+</ul>
+</li>
+<li>Lambda表示式本體中this參考對象及的接受者，是來自Lambda的周圍環境，也就是看Lambda表示式是在哪個名稱範疇(Scope)，就能參考該範疇的名稱，像是變數或方法</li>
+<li>Lambda表示式不能修改捕獲的區域變數值，然而Lambda表示式捕獲的區域變數，若等效於finial區域變數，不用為區域變數加上finial</li>
+<li>只要靜態方法的簽署中，參數與傳回值定義相同，也可使用靜態方法來定義函數介面實作<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static int byLength(String s1, String s2) &#123;</span><br><span class="line">	return s1.length() - s2.length();</span><br><span class="line">&#125;</span><br><span class="line">Comparator&lt;String&gt; byLength(name1, name2) -&gt; name1.length() - name2.length();</span><br><span class="line">// 同</span><br><span class="line">Arrays.sort(names, StringOrder::byLength);</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>這樣的特性稱為方法參考，這可以避免到處寫下Lambda表示式，盡量運用既有的API實作，也可以改善可讀性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] names = List.of[&quot;Justin&quot;, &quot;caterpillar&quot;, &quot;Bush&quot;];</span><br><span class="line">names.forEach(out::println);</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>Java也提供了建構式參考，可重用既有API的類別建構式</li>
+<li>介面預設方法<ul>
+<li>預設方法必須使用default關鍵字修飾，預設權限為public</li>
+<li>預設方法不能使用資料成員</li>
+<li>例如Iterable介面實作了forEach</li>
+<li>JDK9開始，介面也可以定義private方法了</li>
+<li>類別的定義優先於介面的定義，若有重新定義，就已重新定義為主，必要時使用介面與super指定預設方法</li>
+<li>JDK8除了讓介面可以定義預設方法，也允許在介面中定義靜態方法</li>
+<li>JDK9開始可以定義為private的靜態方法</li>
+</ul>
+</li>
+<li>依客戶的姓氏來排，若姓氏相同在依自來排，如果行名都相同，再依居住地的郵遞區號來排<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var byLastName = comparing(Customer::getLastName);</span><br><span class="line"></span><br><span class="line">customers.sort(</span><br><span class="line">	 byLastName</span><br><span class="line">		.thenComparing(Customer::getFirstName)</span><br><span class="line">		.thenComparing(Customer::getZipCode)</span><br><span class="line">);</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>使用Optional取代null<ul>
+<li>呼叫方法時若傳回Optional實例，表示該實例科能包裹也可能不包裹值<ul>
+<li>of()方法可以指定非null值建立Optional實例</li>
+<li>empty()方法可以建立不包裹值的Optional實例</li>
+<li>get()不檢查直接呼叫在沒有包裹值的狀態會直接拋出java.utilElementException，這實現了速錯的概念，讓開發者可以立即發現錯誤</li>
+<li>isPresent()檢查null</li>
+<li>orElse()指定null時的替代值</li>
+<li>ofNullable()用來銜接程式庫會回傳null的方法<ul>
+<li>指定了非null的值就會呼叫of()方法</li>
+<li>指定了null值就會呼叫empty()方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>標準API的函式介面<ul>
+<li>Consumer<ul>
+<li>如果需要的行為是接受一個引數，處裡後不傳回值，就可以使用Consumer介面</li>
+</ul>
+</li>
+<li>Function<ul>
+<li>如果需要的行為是接受一個引數，執行後傳回結果，就可以使用Function介面</li>
+</ul>
+</li>
+<li>Predicate<ul>
+<li>如果接受一個引數、傳回boolean值，也就是根據傳入的引數論斷真假的行為，可以使用Predicate介面</li>
+</ul>
+</li>
+<li>Supplier<ul>
+<li>若需要的行為是不接受任何引數就回傳值，可以使用Supplier介面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Stream管線操作 <ul>
+<li>一個管線基本上包括了幾個部分<ul>
+<li>來源</li>
+<li>零個或多個中介操作</li>
+<li>一個最終操作</li>
+</ul>
+</li>
+<li>範例:程式會找到低一個符合條件的行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">	var fileName = args[0];</span><br><span class="line">	var prefix = args[1];</span><br><span class="line">	var maybeMatched = Files.lines(Paths.get(fileName))</span><br><span class="line">						   .filter(line -&gt; line.startsWith(prefix))</span><br><span class="line">						   .findFirst();</span><br><span class="line">	System.out.println(maybeMatched.orElse(&quot;no matched line&quot;));</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>惰性求值</li>
+<li>內部跌代</li>
+<li>絕大多數的Stream不需要呼叫close()方法，除了一些I/O操作外，例如Files.lines()、Files.list()與Files.walk()方法，建議這類操作科以搭配常是關閉資源<br>(try-with-resource)方法</li>
+<li>for迴圈若參雜了許多小任務，會使for迴圈中的程式碼艱澀難懂，辨識出這些任務，運用中介操作，形成管線化風格，就能增加程式碼閱讀時的流暢性。如下範例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var players = List.of(</span><br><span class="line">	new Player(&quot;Justin&quot;, 39),</span><br><span class="line">	new Player(&quot;Monica&quot;, 36),</span><br><span class="line">	new Player(&quot;Irene&quot;, 6)</span><br><span class="line">);</span><br><span class="line">	</span><br><span class="line">List&lt;String&gt; names = new ArrayList&lt;&gt;();</span><br><span class="line">for(Player player : players)&#123;</span><br><span class="line">	if(player.getAge() &gt; 15)&#123;</span><br><span class="line">		names.add(player.getName().toUpperCase());</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line">for(String name : names)&#123;</span><br><span class="line">	System.out.println(name);</span><br><span class="line">&#125;</span><br><span class="line">// 修改如下</span><br><span class="line">players.stream()</span><br><span class="line">		.filter(player -&gt; player.getAge() &gt; 15)</span><br><span class="line">		.map(Player::getName)</span><br><span class="line">		.map(String::toUpperCase)</span><br><span class="line">		.collect(toList())</span><br><span class="line">		.forEach(out::println);</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>Stream只能跌代一次</li>
+<li>reduce() 自訂運算需求</li>
+<li>collect() 若想將員工收集到另一個List<Employee>裡</li>
+<li>flatMap()、map()方法用於解決巢狀或瀑布的流程的null判斷<ul>
+<li>map()、與flatMap()的差別在於，map()方法實作中，對mapper.apply(value)的結果使用了Optional.ofNullable()方法<br>(flatMap()中使用的是Object.requireNonNull())，因此可持續處理null的情況</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JDK8新增join()靜態方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String message = String.join(&quot;-&quot;, &quot;Java&quot;, &quot;is&quot;, &quot;cool&quot;);</span><br><span class="line">// 產生 &quot;Java-is-cool&quot;</span><br></pre></td></tr></table></figure></li>
+<li>Lambda、平行化與非同步處裡<ul>
+<li>Java在API的設計上，希望你進行平行處裡時能有明確的語意，也就是有stream()與parallelStream()這兩個方法</li>
+<li>相關API用到再行探討</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/08/java-lambda/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/java-thread/" class="archive-article-date">
-  	<time datetime="2021-06-08T12:00:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/06/10/java-time/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java-time
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/08/java-thread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java-thread</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/java-thread/">java-thread</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/07/java-se-basic/" class="archive-article-date">
-  	<time datetime="2021-06-07T01:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/07/java-se-basic/">Java-語言基礎</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/java-BigDeciaml/" class="archive-article-date">
-  	<time datetime="2021-06-06T10:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/java-BigDeciaml/">Java-精確計算-BigDeciaml</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/hello-world/" class="archive-article-date">
-  	<time datetime="2021-06-06T10:29:26.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/hello-world/">hexo 指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -404,8 +436,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

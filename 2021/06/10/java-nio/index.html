@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Novice</title>
+  <title>java-nio | Novice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Novice">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="NIO、NIO2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-nio">
+<meta property="og:url" content="http://example.com/2021/06/10/java-nio/index.html">
 <meta property="og:site_name" content="Novice">
+<meta property="og:description" content="NIO、NIO2">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-10T11:00:08.000Z">
+<meta property="article:modified_time" content="2021-06-10T15:16:12.253Z">
 <meta property="article:author" content="Jacky Yu">
 <meta name="twitter:card" content="summary">
   
@@ -150,238 +154,219 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java-nio" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-api/" class="archive-article-date">
-  	<time datetime="2021-06-10T15:22:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-api/">java-通用API</a>
+    <h1 class="article-title" itemprop="name">
+      java-nio
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-nio/" class="archive-article-date">
+        
+        <a href="/2021/06/10/java-nio/" class="archive-article-date">
   	<time datetime="2021-06-10T11:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-nio/">java-nio</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="NIO、NIO2"><a href="#NIO、NIO2" class="headerlink" title="NIO、NIO2"></a>NIO、NIO2</h3><span id="more"></span>
+<ul>
+<li>NIO<ul>
+<li>相對於串流輸入輸出使用InputStream、OutputStream來銜接資料來源與目的地，NIO使用(Channel)來銜接資料節點，在處理資料時，NIO可以設定緩衝區(Buffer)容量，<br>在緩衝區中標記感興趣的資料區塊，像是標記讀取位置，資料有效位置</li>
+<li>NIO是Channel相關介面類別</li>
+<li>Channel介面主要新增了isOpen()方法，確認Channel是否開啟<ul>
+<li>allocate() 可以指定Buffer容量</li>
+<li>capacity() 可以取得Buffer的容量大小</li>
+<li>array() 取得Buffer的內部陣列</li>
+<li>wrap() 如果有個陣列想轉換為某Buffer子類實例</li>
+<li>allocateDirect() 相較於allocate()方法配置的記憶體是由JVM管理，allocateDirect()會利用作業系統原生IO操作，試著避免JVM中介轉接，理論上會比allocate()配置的記憶體來的有效率，<br>不過allocateDirect()在配置記憶體時，會耗用較多系統資源，建議只用在大型，存活較長的ByteBuffer物件</li>
+<li>isDirect() 可以得知Buffer是否為直接配置</li>
+<li>limit() 實際可讀取或寫入的資料界線索引值，可藉由limit()方法得知或設定</li>
+<li>positon() 下個可以讀取資料的位置</li>
+<li>clear() 將position設為0，limit設為等於容量的值</li>
+<li>flip() 會將limit值設為position目前值，而position設為0</li>
+<li>rewind() 會將position設為0，而limit不變，這方法通常用在想重複讀取Buffer中某區段資料時</li>
+<li>mark() 可再目前position標記，在存取Buffer後，若呼叫reset()方法，會將position設回被mark()標記的位置</li>
+<li>reset()</li>
+<li>remaining() 得知還有多少長度</li>
+<li>hasRemaining() 測試是否還有可存取的資料<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class NIOUtil &#123;</span><br><span class="line">	public static void dump(ReadableByteChannel src, </span><br><span class="line">						   WritableByteChannel dest) throws IOException &#123;</span><br><span class="line">		var buffer = ByteBuffer.allocate(1024);</span><br><span class="line">		try(src; dest) &#123;</span><br><span class="line">			while(src.read(buffer) != -1) &#123;      </span><br><span class="line">				buffer.flip();</span><br><span class="line">				dest.write(buffer);</span><br><span class="line">				buffer.clear();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	// 測試用的 main</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		var url = new URL(&quot;https://openhome.cc&quot;);</span><br><span class="line">		var src = Channels.newChannel(url.openStream());</span><br><span class="line">		var dest = new FileOutputStream(&quot;index.html&quot;).getChannel();</span><br><span class="line">		NIOUtil.dump(src, dest);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NIO2<ul>
+<li>JDK7</li>
+<li>針對不同類型檔案</li>
+<li>NIO2檔案系統API提供一組標準介面與類別，應用程式開發者只要基於標準介面與類別進行檔案系統操作<ul>
+<li>操作路徑<ul>
+<li>Paths.get()<br>…</li>
+</ul>
+</li>
+<li>讀取屬性與設定<ul>
+<li>creationTime()</li>
+<li>lastAccessTime()<br>…</li>
+</ul>
+</li>
+<li>操作檔案與資料夾<ul>
+<li>Files.createDirectory();<br>…</li>
+</ul>
+</li>
+<li>讀取、走訪資料夾<ul>
+<li>getRootDirectories();<br>…</li>
+</ul>
+</li>
+<li>過濾、搜尋資料夾<ul>
+<li>Files.newDirectoryStream()<br>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/10/java-nio/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/java-time/" class="archive-article-date">
-  	<time datetime="2021-06-10T04:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/06/10/java-api/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java-通用API
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/10/java-time/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java-time</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/java-time/">java-time</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/java-lambda/" class="archive-article-date">
-  	<time datetime="2021-06-08T12:03:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/java-lambda/">java-lambda</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/java-thread/" class="archive-article-date">
-  	<time datetime="2021-06-08T12:00:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/java-thread/">java-thread</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/07/java-se-basic/" class="archive-article-date">
-  	<time datetime="2021-06-07T01:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/07/java-se-basic/">Java-語言基礎</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/java-BigDeciaml/" class="archive-article-date">
-  	<time datetime="2021-06-06T10:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/java-BigDeciaml/">Java-精確計算-BigDeciaml</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/06/hello-world/" class="archive-article-date">
-  	<time datetime="2021-06-06T10:29:26.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/06/hello-world/">hexo 指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -404,8 +389,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
