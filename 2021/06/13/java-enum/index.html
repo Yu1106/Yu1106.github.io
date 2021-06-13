@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java-語言基礎 | Novice</title>
+  <title>java-enum | Novice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="語言基礎">
+  <meta name="description" content="ENUM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java-語言基礎">
-<meta property="og:url" content="http://example.com/2021/06/07/java-se-basic/index.html">
+<meta property="og:title" content="java-enum">
+<meta property="og:url" content="http://example.com/2021/06/13/java-enum/index.html">
 <meta property="og:site_name" content="Novice">
-<meta property="og:description" content="語言基礎">
+<meta property="og:description" content="ENUM">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-07T01:21:46.000Z">
-<meta property="article:modified_time" content="2021-06-13T08:58:37.529Z">
+<meta property="article:published_time" content="2021-06-13T05:20:41.000Z">
+<meta property="article:modified_time" content="2021-06-13T06:14:03.294Z">
 <meta property="article:author" content="Jacky Yu">
 <meta name="twitter:card" content="summary">
   
@@ -154,432 +154,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java-se-basic" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java-enum" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java-語言基礎
+      java-enum
     </h1>
   
 
         
-        <a href="/2021/06/07/java-se-basic/" class="archive-article-date">
-  	<time datetime="2021-06-07T01:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-07</time>
+        <a href="/2021/06/13/java-enum/" class="archive-article-date">
+  	<time datetime="2021-06-13T05:20:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="語言基礎"><a href="#語言基礎" class="headerlink" title="語言基礎"></a>語言基礎</h3><span id="more"></span>
+        <h3 id="ENUM"><a href="#ENUM" class="headerlink" title="ENUM"></a>ENUM</h3><span id="more"></span>
 <ul>
-<li>基礎語法<ul>
-<li>基本型態<ul>
-<li>整數<ul>
-<li>short (2位元組 -128~127)</li>
-<li>int (4位元組 1位元組2^8次方 8位元組 = 4 * 2^8 = 4294967296 因為int有正負數 所以範圍介於-2147483648~2147483647之間)</li>
-<li>long (8位元組)</li>
-</ul>
-</li>
-<li>位元數<ul>
-<li>byte</li>
-</ul>
-</li>
-<li>浮點數<ul>
-<li>float (4位元組)</li>
-<li>double (8位元組)</li>
-</ul>
-</li>
-<li>字元<ul>
-<li>char (2位元組 0~ffff)</li>
-</ul>
-</li>
-<li>布林<ul>
-<li>boolean (true,false)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>參考型態<ul>
-<li>基本型態包裝類(Wrap)Long、Double、Float、Boolean、Byte…</li>
-<li>物件在未指定初始值時預設值為null</li>
-</ul>
-</li>
-<li>陣列<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var scores = new int[10];</span><br><span class="line">scores[0] = 88;</span><br><span class="line">...</span><br><span class="line">int[] scores = &#123;88, 81, 74, 68, 78, 76, 77, 85, 95, 93&#125;</span><br><span class="line">var scores = new int[]&#123;88, 81, 74, 68, 78, 76, 77, 85, 95, 93&#125;;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>物件導向<ul>
-<li>封裝</li>
-<li>繼承 is-a</li>
-<li>多形</li>
-</ul>
-</li>
-<li>介面 has-a<ul>
-<li>介面中的方法沒有實作時，一定得是公開且抽象(public abstract)</li>
-<li>介面中定義的常數，只能定義(public static finial)且一定要使用=指定值</li>
-<li>enum列舉定義的列舉常數同樣只能定義public static finial可省略，編譯器會自動補齊</li>
-<li>如果有個臨時繼承某個類別或實作抹個介面並建立實例的需求，而這類子類別或介面實作類別只使用一次，可使用匿名內部類別  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new 父類別() | 介面() &#123;</span><br><span class="line">	// 類別本體實作</span><br><span class="line">&#125;; </span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>容器<ul>
-<li>Collection收集物件時，考慮到收集各種物件之需求，內部實作採用Object來參考物件，執行時期Object實際參考那些物件，編譯器不可能知道，<br>因此必須自行掌握物件實際型態，並在語法上告訴編譯器，讓物件重新扮演為自己的型態</li>
-<li>List 具有索引<ul>
-<li>ArrayList<ul>
-<li>內部使用Object陣列來保存收集之物件</li>
-<li>使用索引隨機存取時速度較快，若操作上有這類需求，像是排序，就可使用ArrayList，可得到較好的速度表現</li>
-<li>若需要調整索引順序時，會有較差的表現</li>
-<li>陣列長度固定也是要考慮的問題</li>
-<li>ArrayList有個可指定容量的建構式</li>
-</ul>
-</li>
-<li>LinkedList<ul>
-<li>採用了鏈結結構</li>
-<li>每次add才會建立新的實體，不會事先耗費記憶體</li>
-<li>想要指定索引隨機存取物件時，會從第一個元素，開始往下查找下一個元素，會比較沒效率</li>
-<li>鏈結的每個元素會參考下一個元素，這有利於調整索引順序</li>
-<li>若收集物件時經常會有變動所引的情況，也許考慮鏈結方式實作的List會比較好</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Set 內容不重複<ul>
-<li>HashSet<ul>
-<li>物件不重複判斷需實作hashCode()和equals() -&gt; 可用編譯器自動產</li>
-</ul>
-</li>
-<li>TreeSet<ul>
-<li>不僅擁有收集不重複物件之能力，還可用紅黑樹結構來排序物件</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Queue 支持序列操作<ul>
-<li>收集物件加入尾端，取物件前端</li>
-<li>Collection add、remove、element方法和Queue自定義方法offer、poll、peek的最主要差別之一在於add、remove、element等操作失敗時會拋出例外，<br>而offer、poll、peek等操作失敗時會回傳特定值</li>
-<li>LinkedList不僅實作List介面，也實作Queue的行為，因此可將LinkedList當作序列來用</li>
-<li>PriorityQueue<ul>
-<li>會根據你指定的優先權，決定物件在序列中的順序</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Deque 在尾端加入物件與取出物件<ul>
-<li>ArrayDeque</li>
-<li>LinkedList也實作了Deque</li>
-</ul>
-</li>
-<li>Iterable &amp; Iterator<ul>
-<li>無論是List、Set、Queue都有個Iterator()方法，可使用hasNext()看看有沒有下個物件，有的話使用next()取得下個物件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">static void foeEach(Iterable iterable)&#123;</span><br><span class="line">	var iterable = iterable.iterator();</span><br><span class="line">	while(iterator.hasNext())&#123;</span><br><span class="line">		out.println(iterator.next());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>JDK8後版本，Iterable新增了forEach()方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var names = Arrays.asList(&quot;Justin&quot;, &quot;Monica&quot;);</span><br><span class="line">names.forEach(name -&gt; out.println(name));</span><br><span class="line"></span><br><span class="line">new HashSet(names).foeEach(out::println);</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>Comparable &amp; Comparator<ul>
-<li>List可以直接排序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var numbers = Array.asList(10, 2, 3);</span><br><span class="line">Collection.sort();</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>物件排序需實作Comparable<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Account impements Comparable&lt;Account&gt; &#123;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public int comparaTo(Account other) &#123;</span><br><span class="line">		return this.balance - other.balance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>若無法實作Comparable可使用Comparator<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class StringComparator impements Comparator&lt;String&gt; &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public int compare(String s1, String s2) &#123;</span><br><span class="line">		return -s1.comparaTo(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">var words Array.asList(&quot;B&quot;, &quot;X&quot;, &quot;A&quot;,...,&quot;O&quot;);</span><br><span class="line">Collection.sort(words, new StringComparator());</span><br><span class="line">// Lambda</span><br><span class="line">Collection.sort(words, (s1, s2) -&gt; -s1.comparaTo(s2));</span><br><span class="line">// 有null&amp;反轉</span><br><span class="line">var words Array.asList(&quot;B&quot;, &quot;X&quot;, &quot;A&quot;, &quot;null&quot;);</span><br><span class="line">Collection.sort(nullsFirst(reverseOrder()));</span><br><span class="line">=&gt; [null, &quot;X&quot;, &quot;B&quot;, &quot;A&quot;]</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>Map 鍵質對應<ul>
-<li>HashSet<ul>
-<li>鍵是否重複是根據hashCode()與equals()判斷，作為鍵的物件必須實作hashCode()與equals()</li>
-</ul>
-</li>
-<li>TreeSet<ul>
-<li>若想讓鍵以有序的方式儲存，可以使用TreeMap</li>
-<li>需實做Comparable，或是建構TreeMap時，指定實作Comparator介面的物件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var messages = new TreeSet&lt;String, String&gt;(</span><br><span class="line">	(s1, s2) -&gt; -s1.comparaTo(s2)</span><br><span class="line">);</span><br><span class="line">messages.put(&quot;JAVA&quot;, &quot;Hello World&quot;);</span><br><span class="line">...</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>走訪MAP鍵值<ul>
-<li>轉換型態</li>
-<li>KeySet<ul>
-<li>KeySet回傳Set物件後在走訪<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.KeySet().foeEach(key -&gt; out.println(key));</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>values<ul>
-<li>values回傳Collection物件後再走訪<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.values().foeEach(key -&gt; out.println(key));</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>轉換型態後可用Iterable</li>
-<li>若想同時取得Map的鍵與鍵值，可使用entrySet()方法，這會回傳一個Set物件，每個元素都是Map.Entry實例，可呼叫getKey取得鍵，呼叫getValue()取得值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map.entrySet();</span><br><span class="line">...</span><br><span class="line">for(Map.Entry&lt;String, String&gt; entry: iterable) &#123;</span><br><span class="line">	entry.getKey();</span><br><span class="line">	entry.getValue();</span><br><span class="line">&#125;</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
-<li>Map介面沒有繼承Iterable。Map介面定義的forEach()方法科接受java.util.function.BiConsumer&lt;T, U&gt;介面實例，這介面上只有一個抽象方法void accept(T t, U, u)<br>必須實作，兩個參數分別接受每次迭代Map而得的鍵與值<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map.forEach(</span><br><span class="line">	(key, value) -&gt; System.out.println(key + &quot;...&quot; + value);</span><br><span class="line">);</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Properties<ul>
-<li>一般常用setProperty()指定字串型態的鍵值、getProperty()取回字串型態的值，通常稱為屬性名稱與屬性值</li>
-<li>可用來從檔案中(.properties)讀取屬性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// person.properties</span><br><span class="line">// cc.openhome.username=justin</span><br><span class="line">// cc.openhome.password=123456</span><br><span class="line"></span><br><span class="line">var props = new Properties();</span><br><span class="line">props.load(new FileInputStream(args[0]));</span><br><span class="line">props.getProperty(&quot;cc.openhome.username&quot;);</span><br><span class="line">...</span><br><span class="line">		</span><br></pre></td></tr></table></figure>    </li>
-<li>load方法執行完會自動關閉InputStream實例</li>
-<li>也可用loadFromXML()方法載入xml檔案</li>
-<li>System的static方法getProperties()取得Properties實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -Dusername=justin -Dpassword=123456 LoadSystemProps</span><br><span class="line"></span><br><span class="line">var props = System.getProperties();</span><br></pre></td></tr></table></figure></li>
-<li>System.getProperties()取回的Properties實例中，也包括了許多預置屬性，例如”java.version”可取得JRE版本，”java.class.path”可取得類別路徑等<br>詳細屬性可查閱System.getProperties()的API文件說明</li>
-</ul>
-</li>
-<li>創立不可變的容器 <ul>
-<li>Collection的unmodifiableXXX()方法<ul>
-<li>方法委託</li>
-<li>傳回的物件只是無法修改(Unmodifiable)，也就是僅僅不支援修改操作而已</li>
-<li>會拋出java.lang,UnsupportedOperationException</li>
-<li>Collection的unmodifiableXXX()方法並沒有保證不可變，傳回的物件是不可修改，而非不可變動</li>
-<li>若變動傳給unmodifiableXXX()方法的物件，unmodifiableXXX()方法回傳的物件也會跟著變動</li>
-</ul>
-</li>
-<li>List、Set、Map的of()方法<ul>
-<li>會建立新物件</li>
-<li>List、Set、Map的of()方法會建立不可變動物件</li>
-<li>會拋出java.lang,UnsupportedOperationException</li>
-<li>建立方式Map.of(K1, V1, K2, V2,…)</li>
-<li>內部並不會參考原本elements參考實例，而是建立一個新陣列</li>
-<li>淺層複製，若是直接變更了元素的狀態，of()方法傳回的物件還是會反映出對應的狀態變更</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>異常<ul>
-<li>try、catch、throw、throws</li>
-<li>Error -&gt; Java本身無力處理</li>
-<li>Exception </li>
-<li>不屬於RuntimeException及其子物件稱為受檢例外(Checked Exception)</li>
-<li>不屬於Error，java.lang.RuntimeException，呼叫者就必須使用明確的try-catch</li>
-<li>多重捕捉(multi-catch) catch中的例外不得有繼承關係<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; catch (IOException | InterruptedException) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>受檢例外: 表示認為客戶端有能力處裡例外，此時必須在方法上使用throws宣告throw<ul>
-<li>使用繼承時父類別某個方法宣告throws某些例外，子類別重新定義該方法時<ul>
-<li><h4 id="可以"><a href="#可以" class="headerlink" title="可以"></a>可以</h4><ul>
-<li>不宣告throws任何例外</li>
-<li>可throws父類別該方法宣告的某些例外</li>
-<li>可throws父類別該方法宣告例外之子類別</li>
-</ul>
-</li>
-<li><h4 id="不可以"><a href="#不可以" class="headerlink" title="不可以"></a>不可以</h4><ul>
-<li>throws父類別方法未宣告的其他例外</li>
-<li>throws父類別方法宣告例外之父類別</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>非受檢例外: 表示認為客戶端呼叫方法的時機錯了，拋出例外是要求客戶端修正臭蟲再來呼叫方法</li>
-<li>程式流程若會拋出受檢例外，而目前環境不足以處裡例外，無法使用try-catch處理時，必須在方法上使用throws，宣告方法會拋出的例外類型或父類型，編譯器才能通過編譯</li>
-<li>若為非受檢例外，原本就可以自行選擇是否處理例外，因此不使用try-catch處理時，也不用特別在方法上使用throws宣告，不處理非受檢例外時，例外會自動往外傳播</li>
-<li>在catch區塊進行完部分錯誤處理之後，可以用throw將例外再拋出</li>
-<li>自訂受檢例外<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class CustomizedException extends Expection &#123; </span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>自訂非受檢例外<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class CustomizedException extends RuntimeException &#123; </span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>e.printStackTrace() 堆疊追蹤<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; catch(SomeException ex)&#123;</span><br><span class="line">	// 什麼都沒有，絕對不要這樣做</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>如果想讓例外堆疊其點為重拋例外的地方，可以使用fillInStackTrace()</li>
-<li>斷言assert<ul>
-<li>assert boolean_expression</li>
-<li>assert boolean_expression : detail_expression</li>
-</ul>
-</li>
-<li>若使用try-catch做檔案操做記得在finally關閉資源<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#125; finally &#123;</span><br><span class="line">	if(console != null)&#123;</span><br><span class="line">		console.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>如果程式的流程先return了，而且也有寫finally，那finally區塊會先執行完畢後，再將值傳回</li>
-<li>嘗試關閉資源try-with-resources語法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try (var console = new Scanner(new FileInputStream(name)))&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>使用自動嘗試關閉資源語法時，並不影響你對特定例外地處裡，實際上自動嘗試關閉資源語法也僅協助關閉資源，而非用於處裡例外，<br>從反編譯的程式碼可以看到，使用嘗試關閉資源語法時，不要自行撰寫程式碼關閉資源</li>
-<li>JDK7、JDK8，使用嘗試關閉資源語法時，一定得在try的括號中宣告</li>
-<li>JDK9以後，只要參考變數實作了只要變數java.lang.AutoCloseable介面的實例，而且是是final或等效於final，在使用嘗試關閉資源語法時，<br>就可以放在try的括號中通過編譯<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static String readFile(Scanner scanner)&#123;</span><br><span class="line">	try (scanner)&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>JDK7嘗試關閉資源語法可套用的物件，必須實作java.lang.AutoCloseable介面，AutoCloseable僅定義close方法</li>
-<li>嘗試關閉資源語法關閉多個資源<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try (var some = new ResourceSome();</span><br><span class="line">var other = new ResourceOther())&#123;</span><br><span class="line">	...</span><br><span class="line">&#125; catch(Exception ex)&#123;</span><br><span class="line">	ex.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>泛型<ul>
-<li>若B是A的子類別，且Node&lt;B&gt;可視為一種Node&lt;A&gt;，稱Node具有共變性或有彈性的</li>
-<li>? 與extends<ul>
-<li>Java的泛型不具有共變性，不過可使用型態通用字元?與extends宣告變數，達到類是共變性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">public class Node&lt;T&gt; &#123;</span><br><span class="line">	public T value;</span><br><span class="line">	public Node&lt;T&gt; next;</span><br><span class="line">	</span><br><span class="line">	public Node(T value, Node&lt;T&gt; next) &#123;</span><br><span class="line">		this.value = value;</span><br><span class="line">		this.next = next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">class Fruit &#123;</span><br><span class="line">	int price;</span><br><span class="line">	int weight;</span><br><span class="line">	Fruit() &#123;&#125;</span><br><span class="line">	Fruit(int price, int weight) &#123;</span><br><span class="line">		this.price = price;</span><br><span class="line">		this.weight = weight;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Apple extends Fruit &#123;</span><br><span class="line">	Apple() &#123;&#125;</span><br><span class="line">	Apple(int price, int weight) &#123;</span><br><span class="line">		 super(price, weight);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Apple&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Banana extends Fruit &#123;</span><br><span class="line">	Banana() &#123;&#125;</span><br><span class="line">	Banana(int price, int weight) &#123;</span><br><span class="line">		 super(price, weight);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Banana&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Node&lt;Apple&gt; apple = new Node&lt;&gt;(new Apple(), null);</span><br><span class="line">Node&lt;Fruit&gt; fruit = apple; // 編譯錯誤，incompatible types</span><br><span class="line">修改如下=&gt;</span><br><span class="line">Node&lt;Apple&gt; apple new Node&lt;&gt;(new Apple(), null);</span><br><span class="line">Node&lt;? extends Frult&gt; frult = apple; // 類似共變性效果</span><br><span class="line">		</span><br></pre></td></tr></table></figure>
-又例如<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class CovarianceDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		var apple1 = new Node&lt;&gt;(new Apple(), null);</span><br><span class="line">		var apple2 = new Node&lt;&gt;(new Apple(), apple1);</span><br><span class="line">		var apple3 = new Node&lt;&gt;(new Apple(), apple2);</span><br><span class="line">		</span><br><span class="line">		var banana1 = new Node&lt;&gt;(new Banana(), null);</span><br><span class="line">		var banana2 = new Node&lt;&gt;(new Banana(), banana1);</span><br><span class="line"></span><br><span class="line">		show(apple3);</span><br><span class="line">		show(banana2);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void show(Node&lt;? extends Fruit&gt; n) &#123; </span><br><span class="line">		Node&lt;? extends Fruit&gt; node = n;</span><br><span class="line">		do &#123;</span><br><span class="line">			System.out.println(node.value);</span><br><span class="line">			node = node.next;</span><br><span class="line">		&#125; while(node != null);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>一旦使用通配字元?與extends限制T型態，T宣告的變數取得之物件，只能指定給Object，或將T宣告之變數指定為null，除此之外不能進行其他動作<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;? extends Frult&gt; node = new Node&lt;&gt;(new Apple(), null);</span><br><span class="line">Object o = node.value;</span><br><span class="line">node.value = null;</span><br><span class="line">Apple apple = node.value; // 編譯錯誤</span><br><span class="line">node.value = new Apple(); // 編譯錯誤</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>Producer extends 生產者<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">List&lt;? super Apple&gt; lt = new ArrayList&lt;&gt;();</span><br><span class="line">get不會有問題</span><br><span class="line">add會編譯錯誤</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>super與 ?<ul>
-<li>延續之前的內容，若B是A的子類別，如果Node&lt;A&gt;視為一種Node&lt;B&gt;，稱Node具有逆變性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">Node&lt;Apple&gt; apple = new Node&lt;&gt;(new Apple(), null);</span><br><span class="line">Node&lt;Fruit&gt; fruit = apple; // 編譯錯誤，incompatible types</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>Java泛型不支援逆變性，實際上第二行賄發生編譯錯誤。可使用型態通配字元?與super來宣告，達到類似逆變性的效果<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">Node&lt;Fruit&gt; fruit = new Node&lt;&gt;(new Fruit(), null);</span><br><span class="line">Node&lt;? super Banana&gt; node = fruit;</span><br><span class="line">Node&lt;? super Apple&gt; node = fruit;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>以下為範例。使用super只要呼叫一次priceComparator<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">public class Basket&lt;T&gt; &#123;</span><br><span class="line">	public T[] things;</span><br><span class="line"></span><br><span class="line">	public Basket(T... things) &#123;</span><br><span class="line">		this.things = things;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void sort(Comparator&lt;? super T&gt; comparator) &#123;</span><br><span class="line">		Arrays.sort(things, comparator);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	Comparator&lt;Fruit&gt; priceComparator =</span><br><span class="line">			(fruit1, fruit2) -&gt; fruit1.price - fruit2.price;</span><br><span class="line">	</span><br><span class="line">	var apples = new Basket&lt;&gt;(</span><br><span class="line">			new Apple(25, 150), new Apple(20, 100));</span><br><span class="line">	</span><br><span class="line">	apples.sort(priceComparator);</span><br><span class="line">	for(var apple : apples.things) &#123;</span><br><span class="line">		out.printf(&quot;Apple(%d, %d) &quot;,</span><br><span class="line">				  apple.price, apple.weight);</span><br><span class="line">	&#125;</span><br><span class="line">	out.println();</span><br><span class="line">	</span><br><span class="line">	var bananas = new Basket&lt;&gt;(</span><br><span class="line">			new Banana(50, 300), new Banana(30, 200));</span><br><span class="line">	</span><br><span class="line">	bananas.sort(priceComparator);</span><br><span class="line">	for(var banana : bananas.things) &#123;</span><br><span class="line">		out.printf(&quot;Banana(%d, %d) &quot;,</span><br><span class="line">				   banana.price, banana.weight);</span><br><span class="line">	&#125;</span><br><span class="line">	out.println();</span><br><span class="line">&#125;&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>Comsumer super 消費者<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">List&lt;? super Apple&gt; lt = new ArrayList&lt;&gt;();</span><br><span class="line">add不會有問題</span><br><span class="line">get會編譯錯誤</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>反射<ul>
-<li>Java需要使用類別時才載入.class檔案，生成java.lang.Class實例代表該檔案，編譯後產生的.class檔案，本身紀錄了許多資訊，可以從Class實例獲得這些訊息，<br>從Class等API獲取類別資訊的機制稱為反射</li>
-<li>Java需要某些類別時才載入.class檔案，而非在程式啟動就載入全部類別<ul>
-<li>可以透過Object()的getClass()方法，或是透過.class常量取得物件對應的Class實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	Class clz = String.class;</span><br><span class="line">	out.printf(&quot;類別名稱：%s%n&quot;, clz.getName());</span><br><span class="line">	out.printf(&quot;是否為介面：%s%n&quot;, clz.isInterface());</span><br><span class="line">	out.printf(&quot;是否為基本型態：%s%n&quot;, clz.isPrimitive());</span><br><span class="line">	out.printf(&quot;是否為陣列物件：%s%n&quot;, clz.isArray());</span><br><span class="line">	out.printf(&quot;父類別名稱：%s%n&quot;, clz.getSuperclass().getName());</span><br><span class="line">	out.printf(&quot;所在模組：%s%n&quot;, clz.getModule().getName());</span><br><span class="line">&#125;    </span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>Class.forName()<ul>
-<li>在某些場合，無法事先知道開發者要使用哪個類別，例如事先不知道開發者將使用哪個廠商的JDBC驅動程式，也就不知道廠商實作java.sql.Driver介面的類別名稱為何，<br>因而必須讓開發者能指定類別名稱來動態載入類別。可以使用Class.forName()方法動態載入類別</li>
-<li>從Class建立物件<ul>
-<li>可以利用Class.forName()動態載入.class檔案，在取得Class實例之後，呼叫Class的getConstructor()或getDeclaredConstructor()方法，取得代表建構式的Constructor物件，<br>利用其newInstance()方法建立類別實例</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>從Class獲得資訊<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">public class ClassViewer &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			ClassViewer.view(args[0]);</span><br><span class="line">		&#125; catch (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">			out.println(&quot;沒有指定類別&quot;);</span><br><span class="line">		&#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">			out.println(&quot;找不到指定類別&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	public static void view(String clzName) throws ClassNotFoundException &#123;</span><br><span class="line">		var clz = Class.forName(clzName);</span><br><span class="line"></span><br><span class="line">		showModuleName(clz);</span><br><span class="line">		showPackageName(clz);</span><br><span class="line">		showClassInfo(clz);</span><br><span class="line"></span><br><span class="line">		out.println(&quot;&#123;&quot;);</span><br><span class="line"></span><br><span class="line">		showFiledsInfo(clz);</span><br><span class="line">		showConstructorsInfo(clz);</span><br><span class="line">		showMethodsInfo(clz);</span><br><span class="line"></span><br><span class="line">		out.println(&quot;&#125;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showModuleName(Class clz) &#123;</span><br><span class="line">		Module m = clz.getModule(); // 取得模組代表物件</span><br><span class="line">		out.printf(&quot;module %s;%n&quot;, m.getName());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static void showPackageName(Class clz) &#123;</span><br><span class="line">		Package p = clz.getPackage(); // 取得套件代表物件</span><br><span class="line">		out.printf(&quot;package %s;%n&quot;, p.getName());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showClassInfo(Class clz) &#123;</span><br><span class="line">		int modifier = clz.getModifiers();   // 取得型態修飾常數</span><br><span class="line">		out.printf(&quot;%s %s %s&quot;,</span><br><span class="line">				Modifier.toString(modifier), // 將常數轉為字串表示</span><br><span class="line">				Modifier.isInterface(modifier) ? &quot;interface&quot; : &quot;class&quot;,</span><br><span class="line">				clz.getName() // 取得類別名稱</span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showFiledsInfo(Class clz) throws SecurityException &#123;</span><br><span class="line">		// 取得宣告的資料成員代表物件</span><br><span class="line">		Field[] fields = clz.getDeclaredFields();</span><br><span class="line">		for(Field field : fields) &#123;</span><br><span class="line">			// 顯示權限修飾，像是public、protected、private</span><br><span class="line">			out.printf(&quot;\t%s %s %s;%n&quot;,</span><br><span class="line">					Modifier.toString(field.getModifiers()),</span><br><span class="line">					field.getType().getName(), // 顯示型態名稱</span><br><span class="line">					field.getName() // 顯示資料成員名稱</span><br><span class="line">			);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showConstructorsInfo(Class clz) throws SecurityException &#123;</span><br><span class="line">		// 取得宣告的建構方法代表物件</span><br><span class="line">		Constructor[] constructors = clz.getDeclaredConstructors();</span><br><span class="line">		for(Constructor constructor : constructors) &#123;</span><br><span class="line">			// 顯示權限修飾，像是public、protected、private</span><br><span class="line">			out.printf(&quot;\t%s %s();%n&quot;,</span><br><span class="line">					Modifier.toString(constructor.getModifiers()),</span><br><span class="line">					constructor.getName() // 顯示建構式名稱</span><br><span class="line">			);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showMethodsInfo(Class clz) throws SecurityException &#123;</span><br><span class="line">		// 取得宣告的方法成員代表物件</span><br><span class="line">		Method[] methods = clz.getDeclaredMethods();</span><br><span class="line">		for(Method method : methods) &#123;</span><br><span class="line">			// 顯示權限修飾，像是public、protected、private</span><br><span class="line">			out.printf(&quot;\t%s %s %s();%n&quot;,</span><br><span class="line">					Modifier.toString(method.getModifiers()),</span><br><span class="line">					method.getReturnType().getName(), // 顯示返回值型態名稱</span><br><span class="line">					method.getName() // 顯示方法名稱</span><br><span class="line">			);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>操作物件方法與成員 <ul>
-<li>invoke()方法動態呼叫指定的方法</li>
-<li>getDeclaredMethod()、setAccessible() 某些情況下，想動態呼叫受保護的(protected)或私有(private)方法，可以使用Class的getDeclaredMethod()取得方法，<br>並在呼叫Mothod的setAccessible()時指定true，將存取限制解除</li>
-<li>getField() 可取得公開的Field</li>
-<li>getDeclaredField() 可取得私有的Field</li>
-<li>在呼叫Method或Field的setAccessible(true)時，若模組權限設定上不允許，會拋出java.lang.reflect.InaccessibleObjectException</li>
-</ul>
-</li>
-<li>動態代理<ul>
-<li>靜態代理<ul>
-<li>在靜態代理實現中，代理物件與被代理物件實現同一個介面，在代理物件中可以實現日誌服務，必要時呼叫被代理物件，被代理物件就可以僅實現本身的職責。</li>
-<li>靜態代理必須為個別介面實作個別代理介面，在應用程式行為複雜時，多個介面就必須定義多個代理介面，實作與維護代理物件會有不少的負擔</li>
-</ul>
-</li>
-<li>動態代理<ul>
-<li>反射API提供動態代理相關類別，不必為特定介面實作特定的代理物件，使用動態代理機制，可以用一個處理者(Handler)代理多個介面的實作物件<ul>
-<li>處理類別必須實作java.lang.reflect.InvocationHandler介面<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public class ProxyDemo &#123;</span><br><span class="line">	public static void main(String[] args) &#123; </span><br><span class="line">		var helloProxy = (Hello) LoggingProxy.bind(new HelloSpeaker()); </span><br><span class="line">		helloProxy.hello(&quot;Justin&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">public class HelloSpeaker implements Hello &#123;</span><br><span class="line">	public void hello(String name) &#123;</span><br><span class="line">		System.out.printf(&quot;哈囉, %s%n&quot;, name); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class LoggingProxy &#123;</span><br><span class="line"></span><br><span class="line">	public static Object bind(Object target) &#123;</span><br><span class="line">		 return Proxy.newProxyInstance( </span><br><span class="line">			 target.getClass().getClassLoader(), </span><br><span class="line">			 target.getClass().getInterfaces(), </span><br><span class="line">			 new LoggingHandler(target)</span><br><span class="line">		 ); </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static class LoggingHandler implements InvocationHandler &#123;    </span><br><span class="line">		private Object target;</span><br><span class="line">		</span><br><span class="line">		LoggingHandler(Object target) &#123;</span><br><span class="line">			this.target = target;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		public Object invoke(Object proxy, Method method, </span><br><span class="line">							 Object[] args) throws Throwable &#123; </span><br><span class="line">			Object result = null; </span><br><span class="line">			try &#123; </span><br><span class="line">				log(String.format(&quot;%s() 呼叫開始...&quot;, method.getName()));</span><br><span class="line">				result = method.invoke(target, args);</span><br><span class="line">				log(String.format(&quot;%s() 呼叫結束...&quot;, method.getName()));</span><br><span class="line">			&#125; catch (IllegalAccessException | IllegalArgumentException | </span><br><span class="line">					InvocationTargetException e)&#123; </span><br><span class="line">				log(e.toString()); </span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			return result; </span><br><span class="line">		&#125; </span><br><span class="line"></span><br><span class="line">		private void log(String message) &#123;</span><br><span class="line">			Logger.getLogger(LoggingHandler.class.getName())</span><br><span class="line">				   .log(Level.INFO, message);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>反射遇上模組<ul>
-<li>模組設計者可決定是否允許反射</li>
-<li>requires 現有模組會依賴在requires的模組，現有模組科以讀取該模組，或稱現有模組對該模組有讀取能力</li>
-<li>exports 若模組想允許其他模組操作公開成員，必須在模組描述檔使用exports</li>
-<li>opens 若模組允許其他模組反射時，操作非公開成員，必須在模組描述檔使用opens，定義那些套件的類別可允許此動作</li>
-</ul>
-</li>
-<li>使用ServiceLoader<ul>
-<li>users</li>
-<li>ServiceLoader會尋找個模組中，是否有PlayerProvider的具體實例，並利用反射建立實例，然而為了效率與定義上的清晰，必須在cc.openhome.api模組的module-info.java中，<br>使用users設定此模組使用那個介面服務</li>
-<li>privides 實作的模組必須使用privides設定此模組為cc.openhome.api.PlayerProvider提供的類別<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">module cc.openhome.api &#123;</span><br><span class="line">	exports cc.openhome.api; </span><br><span class="line">	uses cc.openhome.api.PlayerProvider;</span><br><span class="line">&#125;</span><br><span class="line">//</span><br><span class="line">module cc.openhome.impl &#123;</span><br><span class="line">	requires cc.openhome.api;</span><br><span class="line">	provides cc.openhome.api.PlayerProvider </span><br><span class="line">			 with cc.openhome.impl.ConsolePlayerProvider;</span><br><span class="line">&#125;</span><br><span class="line">//</span><br><span class="line">public interface PlayerProvider &#123;</span><br><span class="line">	Player player();</span><br><span class="line"></span><br><span class="line">	public static Player providePlayer() &#123;</span><br><span class="line">		return ServiceLoader.load(PlayerProvider.class)</span><br><span class="line">					 .findFirst()</span><br><span class="line">					 .orElseThrow(() -&gt; new RuntimeException(&quot;沒有服務提供者&quot;))</span><br><span class="line">					 .player();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>了解類別載入器<ul>
-<li>JDK9中，有三種層次的類別載入器負責載入類別，分別為System類別載入器(也稱為Application載入器)、Platform類別載入器以及Bootstrap類別載入器，三種類別載入器有階層關係，<br>System的父載入器為Platform，而Platform的父載入器為Bootstrap<ul>
-<li>System類別載入器可載入應用程式模組路徑、類別路徑上的類別(以及放在jdk.javadoc、jdk.jartool等模組的JDK特定工具類別)</li>
-<li>Platform載入器，它可以載入整個JavaSE平台API、實作類別(以及特定的JDK執行時s期類別)</li>
-<li>Bootstrap類別載入器是JVM內建的載入器，可以載入java.base、java.logging、java.prefs、和java.desktop模組中的類別(以及一些JDK模組)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>ClassLoader</li>
-</ul>
-</li>
-<li>標註<ul>
-<li>JDK5以後支援原始碼中使用標註備註(Annotation)，提供編輯器額外提示</li>
-<li>@Override 重新定義</li>
-<li>@Deprecated 如過某方法原薪存在於API，後來不建議在使用。若後續呼叫或重新定義這個方法，編譯器會拋出警訊</li>
-<li>@SuppressWarning 若不想看到這個警訊，可以使用以下方法抑制警訊<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@SuppressWarning(&quot;deprecation&quot;)</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>@SafeVarargs 在使用泛型定義不定長度時，編譯器會提示開發者，有無注意到Heap pollution問題，若開發者確定以避免此類問題，可以使用@SafeVarargs標註</li>
-<li>@FunctionalInterface 讓編譯器可協助檢查interface可否作為Lambda目標型態</li>
-<li>自訂標註型態<ul>
-<li>@interface<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public @interface Test&#123;&#125;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line">public void testDoSome()&#123;</span><br><span class="line">...</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>在定義標註時，可使用java.lang.annotation.Target限定標註使用位置，限制時可指定java.lang.annotation.ElementType的列舉值。<br>嘗試在方法之外的地方加上@Test8就會發生錯誤<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public enum ElementType &#123;</span><br><span class="line">	TYPE,</span><br><span class="line">	FIELD,</span><br><span class="line">	METHOD,</span><br><span class="line">	PARAMETER,</span><br><span class="line">	CONSTRUCTOR,</span><br><span class="line">	LOCAL_VARIABLE,</span><br><span class="line">	ANNOTATION_TYPE,</span><br><span class="line">	PACKAGE,</span><br><span class="line">	TYPE_PARAMETER,</span><br><span class="line">	TYPE_USE,</span><br><span class="line">	MODULE,</span><br><span class="line">	RECORD_COMPONENT;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Target(&#123;ElementType.METHOD&#125;)</span><br><span class="line">public @interface Test8 &#123;&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>@Document 製作JavaDoc</li>
-<li>@Inherited 讓標註可被子類別繼承</li>
-<li>JDK8之前，ElementType的列舉成員Type、FIELD、METHOD、PARAMETER、CONSTRUCTOR、LOCAL_VARIABLE、ANNOTATION_TYPE、PACKAGE等，可用來限定哪個宣告位置可以進行備註</li>
-<li>JDK8以後的ElementType多了兩個列舉成員TYPE_PARAMETER、TYPE_USE用來限定哪個型態可以進行備註。若想對泛型的型態參數進行備註<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public enum MailBox&lt;@Email T&gt; &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">// 那麼在定義@Eamil時，必須在@Target設定ElementType.TYPE_PARAMETER，表示此標註可以用來標註型態參數</span><br><span class="line">@Target(&#123;ElementType.TYPE_PARAMETER&#125;)</span><br><span class="line">public @interface Email&#123;&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
-<li>標註若被設為ElementType.TYPE_USE只要是型態名稱，都可以進行標註</li>
-<li>@Repeatable 可以讓你在同一個位置重複相同標註</li>
-<li>JDK9以後，ElementType多了個列舉成員MODULE，被加註MODULE的有@Deprecated與@SuppressWarning，這表示模組描述黨的module上可以使用這2個標註</li>
-<li>執行時期讀取標註資訊<ul>
-<li>Retention</li>
-<li>RetentionPolicy</li>
-<li>RetentionPolicy為RUNTIME的時機，在於讓標註於執行時期提供應用程式之訊，可使用java.lang.reflect.AnnotatedElement介面實作物件取得標示資訊<ul>
-<li>Class、Constructor、Field、Method、Package等類別，都實作了AnnotatedElement介面，如果標示在定義的RetentionPolicy指定為RUNTIME，<br>就可以Class、Constructor、Field、Method、Package等類別的實例，取得設定的標註資訊<ul>
-<li>getDeclaredAnnotation() 取回指定的標住</li>
-<li>getDeclaredAnnotationsByType()與getAnnotationsByType()在指定@Depeatable的標註時，會尋找收集重複標註的容器，<br>相對來說getDeclaredAnnotationsByType()與getAnnotationsByType()就不會處裡@Depeatable的標記<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Debug &#123;</span><br><span class="line">	String name();</span><br><span class="line">	String value();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Other &#123;</span><br><span class="line">	@Debug(name = &quot;caterpillar&quot;, value = &quot;2020/04/20&quot;)</span><br><span class="line">	public void doOther() &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">// 可取得@Debug設定的資訊</span><br><span class="line">public class DebugTool &#123;</span><br><span class="line">	public static void main(String[] args) throws NoSuchMethodException &#123;</span><br><span class="line">		Class&lt;Other&gt; c = Other.class;</span><br><span class="line">		Method method = c.getMethod(&quot;doOther&quot;);</span><br><span class="line">		if(method.isAnnotationPresent(Debug.class)) &#123;</span><br><span class="line">			out.println(&quot;已設定 @Debug 標註&quot;);</span><br><span class="line">			showDebugAnnotation(method);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			out.println(&quot;沒有設定 @Debug 標註&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		showAllAnnotations(method);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void showDebugAnnotation(Method method) &#123;</span><br><span class="line">		// 取得 @Debug 實例</span><br><span class="line">		Debug debug = method.getAnnotation(Debug.class);</span><br><span class="line">		out.printf(&quot;value: %s%n&quot;, debug.value());</span><br><span class="line">		out.printf(&quot;name : %s%n&quot;, debug.name());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static void showAllAnnotations(Method method) &#123;</span><br><span class="line">		Annotation[] annotations = method.getAnnotations();</span><br><span class="line">		for(Annotation annotation : annotations) &#123;</span><br><span class="line">			out.println(annotation.annotationType().getName());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>I/O<ul>
-<li>在不使用InputStream與OutputStream時，必須使用close()關閉串流，由於InputStream與OutputStream實作了java.io.Closeable介面，其父介面為<br>java.lang.AutoCloseable介面，所以可使用JDK7嘗試自動關閉資源語法</li>
-<li>重程式的角度InputStream代表輸入串流，OutputStream代表輸出串流<ul>
-<li>每次從InputStream讀入的資料，都會先存入byte陣列，InputStream的read()方法，會嘗試讀入byte陣列長度的資料，並回傳實際讀入的位元組，只要不是-1，<br>就表示讀取道資料，可以用OutputStream的write()方法，指定要寫出的byte陣列、初始索引與資料長度<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class IO &#123;</span><br><span class="line">	public static void dump(InputStream src, OutputStream dest) throws IOException &#123;</span><br><span class="line">		try (src; dest) &#123;</span><br><span class="line">			var data = new byte[1024];</span><br><span class="line">			var length = 0;</span><br><span class="line">			while((length = src.read(data)) != -1) &#123;</span><br><span class="line">				dest.write(data, 0, length);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// copy</span><br><span class="line">IO.dump(</span><br><span class="line">	  new FileInputStream(args[0]), </span><br><span class="line">	  new FileOutputStream(args[1])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 讀取網頁存成檔案</span><br><span class="line">// openStream()會取得InputStream實例，代表與網站連結的資料串流</span><br><span class="line">var url = new URL(args[0]);</span><br><span class="line">var src = url.openStream();</span><br><span class="line">var dest = new FileOutputStream(args[1]);</span><br><span class="line">IO.dump(src, dest);</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>無論來源或目的地的具體形式為何，只要想辦法取得InputStream或OutputStream，接下來都是呼叫InputStream或OutStream的相關方法</li>
-<li>System.in是InputStream的實例 System.setIn()方法可指定InputStream實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.setIn(new FileInputStream(args[0]));</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
-<li>System.out是PrintStream的實例 System.setOut()將結果輸出至指定的目的地</li>
-<li>System.err 標準錯誤輸出串流<ul>
-<li>但System.err的訊息一定會顯示在文字模式中可使用 &gt; or &gt;&gt; 重新導向至檔案</li>
-<li>也可以使用System.setErr()指定PrintStream，重新指定標準錯誤輸出串流</li>
-</ul>
-</li>
-<li>FileInputStream與FileOutputStream<ul>
-<li>FileInputStream與FileOutputStream在讀取、寫入檔案時，是以位元組為單位，通常會使用一些高階類別加以包裹</li>
-</ul>
-</li>
-<li>ByteArrayInputStream 與 ByteArrayOutputStream<ul>
-<li>read()、write()、toByteArray()</li>
-</ul>
-</li>
-<li>包裹器、裝飾器(Decorator)<ul>
-<li>PrintStream <ul>
-<li>操作PrintStream的print()、println()等方法，PrintStream會自動轉換為byte陣列資料，利用包裹的OutputStream進行輸出</li>
-</ul>
-</li>
-<li>BufferedInputStream 與 BufferedOutputStream 緩衝區</li>
-<li>DataInputStream 與 DataOutputStream 資料轉換處裡<ul>
-<li>讀寫int、double、boolean等的方法，這些方法會自動在指定的型態與位元組間轉換</li>
-<li>Member.writeUTF、Member.writeInt…</li>
-<li>Member.load(“XXX”)</li>
-</ul>
-</li>
-<li>ObjectInputStream 與 ObjectOutputStream 序列化<ul>
-<li>提供readObject()方法將資料讀入物件</li>
-<li>提供writeObject() 方法將物件寫至目的地</li>
-<li>需實作java.io.Serializable介面</li>
-<li>如果在物件序列化時，某些資料成員不希望被寫入，可以使用transient關鍵字</li>
-</ul>
-</li>
-<li>這些類別本身並沒有改變InputStream、OutputStream的行為，只不過取得InputStream做一些加工處理，再交由OutputStream真正進行輸出</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>字元處裡類別<ul>
-<li>Reader與Writer<ul>
-<li>InputStream、OutputStream是用來讀入與輸出位元組資料，若實際上處裡的是字串資料，使用InputStream、OutputStream就得對照編碼表，<br>在字元與位元組間做轉換<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class CharUtil &#123;</span><br><span class="line">	public static void dump(Reader src, Writer dest) throws IOException &#123;</span><br><span class="line">		try(src; dest) &#123;</span><br><span class="line">			var data = new char[1024];</span><br><span class="line">			var length = 0;</span><br><span class="line">			while((length = src.read(data)) != -1) &#123;</span><br><span class="line">				dest.write(data, 0, length);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
-<li>StringReader 與 StringWriter<ul>
-<li>StringReader可將字包裹，當作讀取來源</li>
-<li>StringWriter可以做為寫入目的地，最後用toString()取得寫入的字元組成的字串</li>
-</ul>
-</li>
-<li>CharArrayReader 與 CharArrayWriter<ul>
-<li>將char陣列當作讀取來源以及寫入目的地</li>
-</ul>
-</li>
-<li>FileReader 與 FileWriter<ul>
-<li>讀入寫入預設會使用作業系統預設編碼來做字元轉換</li>
-<li>啟動JVM時可指定-Dfile.encoding來指定FileReader與FileWriter使用的編碼<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -Dfile.encoding=UTF-8 cc.openhome.CharUtil sample.txt</span><br><span class="line">			</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>裝飾器<ul>
-<li>FileReader、FileWriter沒有可以指定編碼的方法，如果在程式執行過程中想指定編碼，必須使用InputStreamReader、OutputStreamWriter，<br>這兩個類別做為裝飾器</li>
-<li>InputStreamReader 與 OutputStreamWriter<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new InputStreamReader(src, charset), </span><br><span class="line">new OutputStreamWriter(dest, charset)</span><br><span class="line">				</span><br></pre></td></tr></table></figure></li>
-<li>BufferedReader 與 BufferedWriter 緩衝區<ul>
-<li>BufferedReader的readline()方法，可讀取一行資料以字串傳回，傳回的字串不包括換行字元</li>
-</ul>
-</li>
-<li>PrintWriter<ul>
-<li>PrintWriter與PrintStream使用上極為類似，不過除了可以對OutputStream包裹之外，PrintWriter還可以對Writer進行包裹，提供print()、<br>println()、format()等方法</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>enum<ul>
+<li>ENUM是抽象類別，無法直接實例化，┼它實作了Comparable介面，compareTo()方法主要是針對ordinal成員比較<ul>
+<li>ordinal成員是在Eunm建構式中設定<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private finial String name;</span><br><span class="line">private finial int ordinal;</span><br><span class="line"></span><br><span class="line">protected Enum(String name, int ordinal)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.ordinal = ordinal;</span><br><span class="line">&#125;</span><br><span class="line">		</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>name() 取得列舉成員名稱字串。相當於toString()</li>
+<li>ordinal() 取得列舉int值</li>
+<li>getValue() 取得代表的數字</li>
+<li>valueOf()方法，可以傳入字串與Enum實例，他會回傳對應的列舉實例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Action2 action = Enum.valueOf(Action.class, &quot;UP&quot;);</span><br><span class="line">// Action2.UP == action</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>Enum重新定義了equals()與hashCode()，並標示為finial，實作邏輯與Object的equals()與hashCode()相同</li>
+<li>values() 會將Action陣列複製後傳回，若要知道有那些列舉成員，可使用這個方法，由於是複製品，改變傳回的陣列，不會影響Action內部的原陣列</li>
+<li>定義列舉時可以自訂義建構式，條件是不公開(public)，也不可於建構式中呼叫super()</li>
+<li>定義列舉時還可以實作介面<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public interface Command &#123;</span><br><span class="line">	void execute();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public enum Action3 implements Command &#123;</span><br><span class="line">...</span><br><span class="line">public class Game3 &#123;</span><br><span class="line">	public static void play(Action3 action) &#123;</span><br><span class="line">		action.execute();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Game3.play(Action3.RIGHT);</span><br><span class="line">		Game3.play(Action3.DOWN);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
+<li>特定值類別本體語法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public enum Action3 implements Command &#123;</span><br><span class="line">	STOP &#123;</span><br><span class="line">		public void execute() &#123;</span><br><span class="line">			out.println(&quot;播放停止動畫&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;, </span><br><span class="line">	RIGHT &#123;</span><br><span class="line">		public void execute() &#123;</span><br><span class="line">			out.println(&quot;播放右轉動畫&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;, </span><br><span class="line">	LEFT &#123;</span><br><span class="line">		public void execute() &#123;</span><br><span class="line">			out.println(&quot;播放左轉動畫&quot;);</span><br><span class="line">		&#125;        </span><br><span class="line">	&#125;, </span><br><span class="line">	UP &#123;</span><br><span class="line">		public void execute() &#123;</span><br><span class="line">			out.println(&quot;播放向上動畫&quot;);</span><br><span class="line">		&#125;        </span><br><span class="line">	&#125;, </span><br><span class="line">	DOWN &#123;</span><br><span class="line">		public void execute() &#123;</span><br><span class="line">			out.println(&quot;播放向下動畫&quot;);</span><br><span class="line">		&#125;        </span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public enum Priority2 &#123;</span><br><span class="line">	MAX(10) &#123;</span><br><span class="line">		public String toString() &#123;</span><br><span class="line">			return format(&quot;(%2d) - 最大權限&quot;, value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;, </span><br><span class="line">	NORM(5) &#123;</span><br><span class="line">		public String toString() &#123;</span><br><span class="line">			return format(&quot;(%2d) - 普通權限&quot;, value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;, </span><br><span class="line">   </span><br><span class="line"> MIN(1) &#123;</span><br><span class="line">		public String toString() &#123;</span><br><span class="line">			return format(&quot;(%2d) - 最小權限&quot;, value);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	protected int value;</span><br><span class="line">	private Priority2(int value) &#123;</span><br><span class="line">		this.value = value;</span><br><span class="line">	&#125;</span><br><span class="line">	public int value() &#123;</span><br><span class="line">		return value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		for(var priority : Priority2.values()) &#123;</span><br><span class="line">			System.out.println(priority);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 執行結果</span><br><span class="line">(10) - 最大權限</span><br><span class="line">( 5) - 普通權限</span><br><span class="line">( 1) - 最小權限</span><br><span class="line">	</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -662,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/07/java-se-basic/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/13/java-enum/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -676,18 +287,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/08/java-thread/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java-thread
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/06/06/java-BigDeciaml/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java-精確計算-BigDeciaml</div>
+    <a href="/2021/06/10/java-api/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java-通用API</div>
       <i class="icon-circle-right"></i>
     </a>
   
